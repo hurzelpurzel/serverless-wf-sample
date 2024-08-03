@@ -26,6 +26,14 @@ mv func_linux_amd64 func
 chmod +x func
 mv func /usr/bin
 
+#serving
+kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.14.1/serving-crds.yaml
+kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.14.1/serving-core.yamlkn 
+
+#eventing
+kubectl apply -f https://github.com/knative/eventing/releases/download/knative-v1.14.5/eventing-crds.yaml
+kubectl apply -f https://github.com/knative/eventing/releases/download/knative-v1.14.5/eventing-core.yaml
+
 
 # Install OLM
 curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/v0.28.0/install.sh | bash -s v0.28.0
