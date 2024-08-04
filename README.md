@@ -21,6 +21,8 @@ wget https://github.com/knative/client/releases/download/knative-v1.15.0/kn-linu
 mv kn-linux-amd64 kn
 chmod +x kn
 mv kn /usr/bin
+
+#funcitons
 wget https://github.com/knative/func/releases/download/knative-v1.15.0/func_linux_amd64
 mv func_linux_amd64 func
 chmod +x func
@@ -40,6 +42,14 @@ curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releas
 
 # Install sonatoflow
 kubectl create -f https://operatorhub.io/install/sonataflow-operator.yaml
+
+# install certmanager
+kubectl create -f https://operatorhub.io/install/cert-manager.yaml
+
+# rabbitmq
+kubectl create -f https://operatorhub.io/install/rabbitmq-cluster-operator.yaml
+kubectl create -f https://operatorhub.io/install/rabbitmq-messaging-topology-operator.yaml
+kubectl apply -f https://github.com/knative-extensions/eventing-rabbitmq/releases/download/knative-v1.15.0/rabbitmq-broker.yaml
 
 # check progress
 kubectl get csv -n operators
